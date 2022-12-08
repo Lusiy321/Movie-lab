@@ -1,0 +1,47 @@
+{
+  "name": "movie-lab",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://github.com/Lusiy321/Movie-lab",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /Movie-lab/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lusiy321/Movie-lab.git"
+  },
+  "keywords": [],
+  "author": "Lusiy321",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lusiy321/Movie-lab/issues"
+  },
+  "dependencies": {
+    "axios": "^1.2.0",
+    "babel": "^6.23.0",
+    "lodash.debounce": "^4.0.8",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.5"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "path-browserify": "^1.0.1",
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0",
+    "util": "^0.12.5"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
