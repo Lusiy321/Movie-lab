@@ -7,6 +7,7 @@
     width: 100%;
     height: 216px;
     background-image: url("background_ld.047c98e3.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
@@ -18,6 +19,7 @@
     width: 100%;
     height: 216px;
     background-image: url("background_md.1fdd0d9f.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -28,6 +30,41 @@
     width: 100%;
     height: 230px;
     background-image: url("background_sd.4ba0df44.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lib {
+    width: 100%;
+    height: 216px;
+    background-image: url("Rectangle_ld.5bfa0612.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .lib {
+    width: 100%;
+    height: 216px;
+    background-image: url("Rectangle_md.f98d88dd.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .lib {
+    width: 100%;
+    height: 230px;
+    background-image: url("Rectangle_sd.0b4194bc.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
