@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel=" stylesheet" href="./sass/index.scss" />
     <link rel="shortcut icon" sizes="16x16" href="/src/img/favicon-16x16.png" type="image/png">
     <link rel="shortcut icon" sizes="32x32" href="/src/img/favicon-32x32.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,36 +13,14 @@
 </head>
 
 <body>
-    <header class="lib">
-        <section class="head__menu">
-            <div>
-                <a href="index.html" class="logo"><svg class="logo__film" width="38" height="38">
-                        <use href="/src/img/icon.svg#icon-logo"></use>
-                    </svg>
-                    <h1>Movie Lab</h1>
-                </a>
-
-
-            </div>
-            <nav class="nav__menu">
-                <a class="nav__menu__link" href="index.html">HOME</a>
-                <a class="nav__menu__link__lib" href="library.html">MY LIBRARY</a>
-            </nav>
-        </section>
-        <div class="search">
-            <button type="submit">WATCHED</button>
-            <button type="submit">QUEUE</button>
-        </div>
-    </header>
-    <section class="main__body">
+    <include src="./partials/library-header.html"></include>
+    <main class="main__body">
         <h2 class="found"></h2>
         <div class="gallery">
         </div>
         <div class="js-gg"></div>
-    </section>
-    <footer class="footer">
-        <p>&#169 All Rights Reserved Developed with by GoIT Students</p>
-    </footer>
+    </main>
+    <include src="./partials/footer.html"></include>
     <script src="index.js" type="module"></script>
 </body>
 

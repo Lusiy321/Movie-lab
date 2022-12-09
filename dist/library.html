@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/index.77a9bc14.css">
+    <link rel=" stylesheet" href="/sass.b07a87f3.css">
     <link rel="shortcut icon" sizes="16x16" href="/favicon-16x16.54ec8d5c.png" type="image/png">
     <link rel="shortcut icon" sizes="32x32" href="/favicon-32x32.b71481b0.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,35 +14,52 @@
 
 <body>
     <header class="lib">
-        <section class="head__menu">
-            <div>
-                <a href="/index.html" class="logo"><svg class="logo__film" width="38" height="38">
-                        <use href="/icon.d44fde8b.svg#icon-logo"></use>
-                    </svg>
-                    <h1>Movie Lab</h1>
-                </a>
+    <section class="head__menu">
+        <div>
+            <a href="/index.html" class="logo"><svg class="logo__film" width="38" height="38">
+                    <use href="/icon.d44fde8b.svg#icon-logo"></use>
+                </svg>
+                <h1>Movie Lab</h1>
+            </a>
 
 
-            </div>
-            <nav class="nav__menu">
-                <a class="nav__menu__link" href="/index.html">HOME</a>
-                <a class="nav__menu__link__lib" href="/library.html">MY LIBRARY</a>
-            </nav>
-        </section>
-        <div class="search">
-            <button type="submit">WATCHED</button>
-            <button type="submit">QUEUE</button>
         </div>
-    </header>
-    <section class="main__body">
+        <nav class="nav__menu">
+            <a class="nav__menu__link" href="/index.html">HOME</a>
+            <a class="nav__menu__link__lib" href="/library.html">MY LIBRARY</a>
+        </nav>
+    </section>
+    <div class="lib__button">
+        <button type="submit" class="lib__btn current-btn">WATCHED</button>
+        <button type="submit" class="lib__btn">QUEUE</button>
+    </div>
+    <div class="toolbar__lib">
+        <div class="theme-switch">
+            <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца" width="10" height="10">
+                <use href="/icon.d44fde8b.svg#icon-sun"></use>
+            </svg>
+            <div class="theme-switch__control">
+                <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой">
+                <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+                </label>
+                <div aria-hidden="true" class="theme-switch__marker"></div>
+            </div>
+
+            <svg class="theme-switch__icon" aria-label="Иконка луны" width="10" height="10">
+                <use href="/icon.d44fde8b.svg#icon-moon"></use>
+            </svg>
+        </div>
+    </div>
+</header>
+    <main class="main__body">
         <h2 class="found"></h2>
         <div class="gallery">
         </div>
         <div class="js-gg"></div>
-    </section>
-    <footer class="footer">
-        <p>&#169 All Rights Reserved Developed with by GoIT Students</p>
-    </footer>
+    </main>
+    <footer class="footer light-theme">
+    <p>&#169 2022 | All Rights Reserved | Developed with by GoIT Students</p>
+</footer>
     <script src="/index.975ef6c8.js" defer=""></script>
 </body>
 
