@@ -503,6 +503,74 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"8lqZg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _themeSwitch = require("./js/theme-switch");
+var _themeSwitchDefault = parcelHelpers.interopDefault(_themeSwitch);
+
+},{"./js/theme-switch":"dbhPz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dbhPz":[function(require,module,exports) {
+const inputEl = document.querySelector(".theme-switch__toggle");
+const footer = document.querySelector(".footer");
+const THEME = {
+    LIGHT: "light-theme",
+    DARK: "dark-theme"
+};
+inputEl.addEventListener("click", onSwitch);
+if (localStorage.getItem("Theme") === "dark") {
+    darkThemeOn();
+    inputEl.checked = true;
+}
+if (localStorage.getItem("Theme") === "light") lightThemeOn();
+function onSwitch(e) {
+    if (e.target.checked) {
+        darkThemeOn();
+        localStorage.setItem("Theme", "dark");
+    } else {
+        lightThemeOn();
+        localStorage.setItem("Theme", "light");
+    }
+}
+function lightThemeOn() {
+    document.body.classList.add(THEME.LIGHT);
+    document.body.classList.remove(THEME.DARK);
+    footer.classList.add(THEME.LIGHT);
+    footer.classList.remove(THEME.DARK);
+}
+function darkThemeOn() {
+    document.body.classList.add(THEME.DARK);
+    document.body.classList.remove(THEME.LIGHT);
+    footer.classList.remove(THEME.LIGHT);
+    footer.classList.add(THEME.DARK);
+}
+
+},{}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["1RB6v","8lqZg"], "8lqZg", "parcelRequire738f")
 
