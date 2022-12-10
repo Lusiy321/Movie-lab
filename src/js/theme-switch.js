@@ -37,3 +37,5 @@ function darkThemeOn() {
   footer.classList.remove(THEME.LIGHT);
   footer.classList.add(THEME.DARK);
 }
+
+export default onSwitch;
