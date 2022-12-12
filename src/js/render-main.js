@@ -3,7 +3,6 @@ import { popularMovie } from './API/main-page-movie';
 import { container } from './API/consts';
 
 export async function mainPage() {
-  page = 1;
   try {
     await popularMovie(page).then(resp => {
       renderMain(resp.data);
