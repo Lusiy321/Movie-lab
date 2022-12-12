@@ -1,6 +1,5 @@
 @media screen and (min-width: 1200px) {
   header {
-    width: 100%;
     height: 216px;
     background-image: url("background_ld.047c98e3.jpg");
     background-position: center;
@@ -34,7 +33,6 @@
 
 @media screen and (min-width: 1200px) {
   .lib {
-    width: 100%;
     height: 216px;
     background-image: url("Rectangle_ld.5bfa0612.jpg");
     background-position: center;
@@ -77,7 +75,6 @@
 .logo {
   align-items: center;
   gap: 12px;
-  margin-left: 66px;
   font-family: Roboto;
   font-size: 30px;
   font-style: normal;
@@ -86,9 +83,44 @@
   display: flex;
 }
 
+@media screen and (max-width: 767px) {
+  .logo {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .logo {
+    margin-left: 34px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    margin-left: 34px;
+  }
+}
+
 .nav__menu {
-  margin-right: 32px;
   position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .nav__menu {
+    margin-right: 33px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav__menu {
+    margin-right: 40px;
+  }
 }
 
 .search {
@@ -155,20 +187,27 @@
   margin-left: -15px;
 }
 
+@media screen and (max-width: 767px) {
+  .search_btn {
+    margin-top: 20px;
+  }
+}
+
 #search-box {
   width: 420px;
   background-color: #fff0;
   border: 0;
   border-bottom: .5px solid #fff;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 16px;
-  padding: 8px;
+  padding: 0 0 2px;
   display: block;
 }
 
 @media screen and (max-width: 767px) {
   #search-box {
-    width: 300px;
+    width: 280px;
+    margin-top: 34px;
   }
 }
 
@@ -195,13 +234,30 @@
 .lib__button {
   justify-content: center;
   align-items: center;
-  gap: 16px;
   display: flex;
 }
 
+@media screen and (max-width: 767px) {
+  .lib__button {
+    gap: 20px;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .lib__button {
+    gap: 32px;
+    padding-top: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lib__button {
+    gap: 16px;
+  }
+}
+
 .lib__btn {
-  width: 129px;
-  height: 44px;
   text-transform: uppercase;
   color: #fff;
   background-color: inherit;
@@ -214,9 +270,24 @@
   transition: all 1s cubic-bezier(.4, 0, .2, 1);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
   .lib__btn {
-    width: 136px;
+    width: 129px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .lib__btn {
+    width: 152px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lib__btn {
+    width: 148px;
+    height: 42px;
   }
 }
 
@@ -244,6 +315,24 @@ body {
   line-height: 1.5;
 }
 
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: 767px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    max-width: 1199px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1920px;
+  }
+}
+
 h1 {
   color: #fff;
   margin: 0;
@@ -256,7 +345,12 @@ h1 {
 }
 
 h2 {
-  margin-top: 80px;
+  margin-top: 20px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.15;
 }
 
 @media screen and (max-width: 767px) {
@@ -277,11 +371,16 @@ a:hover {
 
 img {
   object-fit: cover;
-  border-radius: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 394px;
+  height: 574px;
+  border-radius: 5px;
+  margin: 0 auto;
   display: block;
   box-shadow: 0 1px 1px #0000001f, 0 4px 4px #0000000f, 1px 4px 6px #00000029;
+}
+
+li {
+  list-style-type: none;
 }
 
 span {
@@ -289,11 +388,11 @@ span {
 }
 
 .footer {
-  width: 100%;
   height: 77px;
   background: #f7f7f7;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   display: flex;
 }
 
@@ -319,10 +418,33 @@ body {
   display: flex;
 }
 
+@media screen and (max-width: 767px) {
+  .toolbar {
+    padding: 10px;
+  }
+}
+
 .toolbar__lib {
   justify-content: flex-end;
-  padding: 30px;
   display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .toolbar__lib {
+    padding: 20px 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .toolbar__lib {
+    padding: 13px 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .toolbar__lib {
+    padding: 30px;
+  }
 }
 
 .theme-switch {
@@ -398,6 +520,18 @@ body {
 
 .theme-switch__toggle:focus + .theme-switch__track, .theme-switch__toggle:active + .theme-switch__track {
   box-shadow: 0 1px 1px #00000040;
+}
+
+.gallery {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 60px;
+  display: flex;
+}
+
+.gallery__title {
+  width: 395px;
 }
 
 /*# sourceMappingURL=sass.b07a87f3.css.map */

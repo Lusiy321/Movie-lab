@@ -1,7 +1,7 @@
 @media screen and (min-width: 1200px) {
   header {
     margin: 0 auto;
-    width: 100%;
+    // width: 100%;
     height: 216px;
     background-image: url('/src/img/bg/background_ld.jpg');
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 @media screen and (min-width: 1200px) {
   .lib {
     margin: 0 auto;
-    width: 100%;
+    // width: 100%;
     height: 216px;
     background-image: url('/src/img/bg/Rectangle_ld.jpg');
     background-repeat: no-repeat;
@@ -68,28 +68,49 @@
 
 .head__menu {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding-top: 40px;
-  margin-bottom: 15px;
+  margin-bottom: 15px;  
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: 66px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
   line-height: 1.16;
+  @media screen and (max-width: 767px) {
+    margin-left: 20px;
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-left: 34px;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    margin-left: 34px;
+  }
 }
 
 
 .nav__menu {
-  margin-right: 32px;
+  
   position: relative;
+  @media screen and (max-width: 767px) {
+    margin-right: 20px;
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-right: 33px;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    margin-right: 40px;
+  }
 }
 
 .search {
@@ -174,13 +195,17 @@
   background-repeat: no-repeat;
   border: none;
   margin-left: -15px;
+  @media screen and (max-width: 767px){
+    margin-top: 20px;
+  }
 }
 
 #search-box {
   display: block;
-  padding: 8px;
+  padding: 0px;
+  padding-bottom: 2px;
   width: 420px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 16px;
   background-color: hsla(0, 0%, 100%, 0);
   border-top: 0px;
@@ -190,7 +215,8 @@
 }
 @media screen and (max-width: 767px) {
   #search-box {
-    width: 300px;
+    margin-top: 34px;
+    width: 280px;
   }
 }
 
@@ -217,12 +243,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 40px;
+    gap: 20px;
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    padding-top: 15px;
+    gap: 32px;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    gap: 16px;
+  }
+  
 }
 
 .lib__btn {
-  width: 129px;
-  height: 44px;
+  
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -234,12 +273,22 @@
   border: 1px solid #ffffff;
   border-radius: 5px;
   cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    width: 136px;
-  }
-
   transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: 767px) {
+    width: 129px;
+    height: 44px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px){
+    width: 152px;
+    height: 44px;
+  }
+  
+
+  @media screen and (min-width: 1200px){
+    width: 148px;
+    height: 42px;
+  }
 
   &:hover,
   &:focus {
