@@ -7,7 +7,6 @@ form.addEventListener('submit', onSearch);
 
 export async function onSearch(e) {
   e.preventDefault();
-  page = 1;
   const query = form.searchQuery.value;
   e.currentTarget.reset();
   if (!query) {
