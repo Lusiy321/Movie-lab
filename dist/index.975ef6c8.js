@@ -509,6 +509,22 @@ var _themeSwitchDefault = parcelHelpers.interopDefault(_themeSwitch);
 var _searchMovie = require("./js/API/search-movie");
 var _renderMain = require("./js/render-main");
 (0, _renderMain.mainPage)();
+const closeBtn = document.querySelector(".modal-btn");
+const aboutWindow = document.querySelector(".backdrop");
+const itemElem = document.querySelector(".gallery");
+closeBtn.addEventListener("click", closeAbout);
+itemElem.addEventListener("click", openAbout);
+function closeAbout() {
+    aboutWindow.classList.add("is-hidden");
+}
+function openAbout(e) {
+    e.preventDefault();
+    if (e.target.nodeName !== "IMG") {
+        console.log("none");
+        return;
+    }
+    aboutWindow.classList.remove("is-hidden");
+}
 
 },{"./js/theme-switch":"dbhPz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./js/API/search-movie":"8Jsh2","./js/render-main":"5wp9N"}],"dbhPz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -586,11 +602,9 @@ var _renderMain = require("../render-main");
 var _renderSearch = require("../render-search");
 var _consts = require("./consts");
 var _mainPageMovie = require("./main-page-movie");
-// export let query = '';
 (0, _consts.form).addEventListener("submit", onSearch);
 async function onSearch(e) {
     e.preventDefault();
-    page = 1;
     const query = (0, _consts.form).searchQuery.value;
     e.currentTarget.reset();
     if (!query) {
@@ -4853,10 +4867,11 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderSearch", ()=>renderSearch);
 var _consts = require("./API/consts");
 function renderSearch(data) {
-    const markup = data.results.map((item)=>`<li>
-            <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}"></div>
+    const markup = data.results.map((item)=>`<li class="gallery__item">
             <div>
-                <h2>${item.title}</h2>
+            <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}"></div>
+            <div class="gallery__title">
+                <h2>${item.title.toUpperCase()}</h2>
                 <p></p>
             </div>
         </li>`).join("");
@@ -4872,7 +4887,6 @@ parcelHelpers.export(exports, "renderMain", ()=>renderMain);
 var _consts = require("./API/consts");
 var _mainPageMovie = require("./API/main-page-movie");
 async function mainPage() {
-    page = 1;
     try {
         await (0, _mainPageMovie.popularMovie)((0, _consts.page)).then((resp)=>{
             renderMain(resp.data);
@@ -4882,10 +4896,10 @@ async function mainPage() {
     }
 }
 function renderMain(data) {
-    const markup = data.results.map((item)=>`<li>
+    const markup = data.results.map((item)=>`<li class="gallery__item">
             <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}"></div>
             <div class = "gallery__title">
-                <h2>${item.title}</h2>
+                <h2>${item.title.toUpperCase()}</h2>
                 <p></p>
             </div>
         </li>`).join("");

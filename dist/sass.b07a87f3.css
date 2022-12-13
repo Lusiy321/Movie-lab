@@ -292,6 +292,7 @@
 }
 
 .lib__btn:hover, .lib__btn:focus {
+  background-color: #ff6b01;
   border-color: #ff6b01;
 }
 
@@ -313,6 +314,10 @@ body {
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   line-height: 1.5;
+}
+
+.container {
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -345,7 +350,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 20px;
+  margin-top: 12px;
   font-family: Roboto;
   font-size: 20px;
   font-style: normal;
@@ -371,12 +376,31 @@ a:hover {
 
 img {
   object-fit: cover;
-  width: 394px;
-  height: 574px;
   border-radius: 5px;
   margin: 0 auto;
   display: block;
   box-shadow: 0 1px 1px #0000001f, 0 4px 4px #0000000f, 1px 4px 6px #00000029;
+}
+
+@media screen and (max-width: 767px) {
+  img {
+    width: 280px;
+    height: 402px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  img {
+    width: 336px;
+    height: 455px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  img {
+    width: 394px;
+    height: 574px;
+  }
 }
 
 li {
@@ -527,11 +551,137 @@ body {
   justify-content: center;
   gap: 16px;
   margin-top: 60px;
+  padding: 0;
   display: flex;
 }
 
-.gallery__title {
-  width: 395px;
+@media screen and (max-width: 767px) {
+  .gallery__title {
+    width: 280px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .gallery__title {
+    width: 336px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .gallery__title {
+    width: 395px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main__body {
+    width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .main__body {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main__body {
+    margin: 0 auto;
+  }
+}
+
+.main__lib {
+  padding-bottom: 30%;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  opacity: 1;
+  z-index: 11;
+  background-color: #5e6363b3;
+  justify-content: center;
+  align-items: center;
+  transition: opacity .25s cubic-bezier(.4, 0, .2, 1), background-color .25s cubic-bezier(.4, 0, .2, 1), box-shadow .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: all;
+  transition-property: opacity, background-color, box-shadow, visibility;
+  transition-duration: .25s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    width: 280px;
+    height: 80%;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 1px 3px #0000001f, 0 1px 1px #00000024, 0 2px 1px #0003;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 704px;
+    height: 552px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 1px 3px #0000001f, 0 1px 1px #00000024, 0 2px 1px #0003;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modal {
+    width: 806px;
+    height: 558px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 4px 4px #0000000f;
+  }
+}
+
+.modal-btn {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition-property: opacity, background-color, fill, visibility, border-color;
+  transition-duration: .25s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  display: flex;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modal-btn:hover, .modal-btn:focus {
+  border-color: #ff001b;
+  transition-property: opacity, background-color, fill, visibility, border-color;
+  transition-duration: .25s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 
 /*# sourceMappingURL=sass.b07a87f3.css.map */

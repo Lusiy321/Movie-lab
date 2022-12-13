@@ -71,7 +71,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 40px;
-  margin-bottom: 15px;  
+  margin-bottom: 15px;
 }
 
 .logo {
@@ -83,14 +83,15 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 1.16;
+
   @media screen and (max-width: 767px) {
     margin-left: 20px;
   }
-  
+
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     margin-left: 34px;
   }
-  
+
   @media screen and (min-width: 1200px) {
     margin-left: 34px;
   }
@@ -98,16 +99,17 @@
 
 
 .nav__menu {
-  
+
   position: relative;
+
   @media screen and (max-width: 767px) {
     margin-right: 20px;
   }
-  
+
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     margin-right: 33px;
   }
-  
+
   @media screen and (min-width: 1200px) {
     margin-right: 40px;
   }
@@ -195,7 +197,8 @@
   background-repeat: no-repeat;
   border: none;
   margin-left: -15px;
-  @media screen and (max-width: 767px){
+
+  @media screen and (max-width: 767px) {
     margin-top: 20px;
   }
 }
@@ -213,6 +216,7 @@
   border-right: 0px;
   border-bottom: 0.5px solid #FFFFFF;
 }
+
 @media screen and (max-width: 767px) {
   #search-box {
     margin-top: 34px;
@@ -239,7 +243,7 @@
   outline: 0;
 }
 
-.lib__button{
+.lib__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,20 +252,20 @@
     padding-top: 40px;
     gap: 20px;
   }
-  
+
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     padding-top: 15px;
     gap: 32px;
   }
-  
+
   @media screen and (min-width: 1200px) {
     gap: 16px;
   }
-  
+
 }
 
 .lib__btn {
-  
+
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -279,13 +283,14 @@
     width: 129px;
     height: 44px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1199px){
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     width: 152px;
     height: 44px;
   }
-  
 
-  @media screen and (min-width: 1200px){
+
+  @media screen and (min-width: 1200px) {
     width: 148px;
     height: 42px;
   }
@@ -293,8 +298,10 @@
   &:hover,
   &:focus {
     border-color: #FF6B01;
+    background-color: #FF6B01;
   }
 }
+
 .current-btn {
   border: none;
   background-color: #FF6B01;

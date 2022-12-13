@@ -2,7 +2,6 @@ import { mainPage } from '../render-main';
 import { renderSearch } from '../render-search';
 import { error, form, page, container } from './consts';
 import { fetchQuery } from './main-page-movie';
-// export let query = '';
 form.addEventListener('submit', onSearch);
 
 export async function onSearch(e) {
