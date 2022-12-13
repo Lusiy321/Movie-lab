@@ -19,7 +19,7 @@ export function renderMain(data) {
         `<li class="gallery__item">
             <div><img src="https://image.tmdb.org/t/p/w500${
               item.poster_path
-            }" alt="${item.title}"></div>
+            }" alt="${item.title}" data-source="${item.id}"></div>
             <div class = "gallery__title">
                 <h2>${item.title.toUpperCase()}</h2>
                 <p></p>

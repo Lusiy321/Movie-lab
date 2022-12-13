@@ -508,25 +508,10 @@ var _themeSwitch = require("./js/theme-switch");
 var _themeSwitchDefault = parcelHelpers.interopDefault(_themeSwitch);
 var _searchMovie = require("./js/API/search-movie");
 var _renderMain = require("./js/render-main");
+var _aboutFilm = require("./js/about-film");
 (0, _renderMain.mainPage)();
-const closeBtn = document.querySelector(".modal-btn");
-const aboutWindow = document.querySelector(".backdrop");
-const itemElem = document.querySelector(".gallery");
-closeBtn.addEventListener("click", closeAbout);
-itemElem.addEventListener("click", openAbout);
-function closeAbout() {
-    aboutWindow.classList.add("is-hidden");
-}
-function openAbout(e) {
-    e.preventDefault();
-    if (e.target.nodeName !== "IMG") {
-        console.log("none");
-        return;
-    }
-    aboutWindow.classList.remove("is-hidden");
-}
 
-},{"./js/theme-switch":"dbhPz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./js/API/search-movie":"8Jsh2","./js/render-main":"5wp9N"}],"dbhPz":[function(require,module,exports) {
+},{"./js/theme-switch":"dbhPz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./js/API/search-movie":"8Jsh2","./js/render-main":"5wp9N","./js/about-film":"jKxeL"}],"dbhPz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const inputEl = document.querySelector(".theme-switch__toggle");
@@ -4869,7 +4854,7 @@ var _consts = require("./API/consts");
 function renderSearch(data) {
     const markup = data.results.map((item)=>`<li class="gallery__item">
             <div>
-            <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}"></div>
+            <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}" data-source="${item.id}"></div>
             <div class="gallery__title">
                 <h2>${item.title.toUpperCase()}</h2>
                 <p></p>
@@ -4897,7 +4882,7 @@ async function mainPage() {
 }
 function renderMain(data) {
     const markup = data.results.map((item)=>`<li class="gallery__item">
-            <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}"></div>
+            <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}" data-source="${item.id}"></div>
             <div class = "gallery__title">
                 <h2>${item.title.toUpperCase()}</h2>
                 <p></p>
@@ -4907,6 +4892,70 @@ function renderMain(data) {
     return;
 }
 
-},{"./API/consts":"g20t7","./API/main-page-movie":"b0Faj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1RB6v","8lqZg"], "8lqZg", "parcelRequire738f")
+},{"./API/consts":"g20t7","./API/main-page-movie":"b0Faj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jKxeL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "containerModal", ()=>containerModal);
+parcelHelpers.export(exports, "closeAbout", ()=>closeAbout);
+parcelHelpers.export(exports, "openAbout", ()=>openAbout);
+var _searchModal = require("./API/search-modal");
+var _renderModal = require("./render-modal");
+const closeBtn = document.querySelector(".modal-btn");
+const aboutWindow = document.querySelector(".backdrop");
+const itemElem = document.querySelector(".gallery");
+const containerModal = document.querySelector(".modal-form");
+closeBtn.addEventListener("click", closeAbout);
+itemElem.addEventListener("click", openAbout);
+function closeAbout() {
+    aboutWindow.classList.add("is-hidden");
+}
+function openAbout(e) {
+    e.preventDefault();
+    if (e.target.nodeName !== "IMG") return;
+    aboutWindow.classList.remove("is-hidden");
+    const id = e.target.dataset.source;
+    console.log(id);
+    try {
+        (0, _searchModal.oneMovie)(id).then((res)=>{
+            (0, _renderModal.renderModal)(res);
+        });
+    } catch (e1) {
+        return Error;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./API/search-modal":"cXhWK","./render-modal":"7JSdB"}],"cXhWK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "oneMovie", ()=>oneMovie);
+var _consts = require("./consts");
+async function oneMovie(id) {
+    try {
+        const res = await axios.get(`${(0, _consts.URL)}movie/${id}?&api_key=${(0, _consts.KEY)}`);
+        return res.JSON("");
+    } catch (e) {
+        return Error;
+    }
+}
+
+},{"./consts":"g20t7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7JSdB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderModal", ()=>renderModal);
+var _aboutFilm = require("./about-film");
+function renderModal(res) {
+    //   console.log(res);
+    const markup = res.map((item)=>`<div>
+              <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.original_title}"></div>
+              <div class = "gallery__title">
+                  <h2>${item.original_title.toUpperCase()}</h2>
+                  <p></p>
+              </div>
+          </div>`).join("");
+    (0, _aboutFilm.containerModal).insertAdjacentHTML("beforeend", markup);
+    return;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./about-film":"jKxeL"}]},["1RB6v","8lqZg"], "8lqZg", "parcelRequire738f")
 
 //# sourceMappingURL=index.975ef6c8.js.map
