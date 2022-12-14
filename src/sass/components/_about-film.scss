@@ -50,7 +50,7 @@
     @media screen and (min-width: 1280px) {
         position: relative;
         width: 806px;
-        height: 558px;
+        height: auto;
         background-color: #FFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
         
@@ -89,7 +89,10 @@
 .modal-form{
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.gallery__title{
+    margin-top: 40px;
 }
 .modal__box_img{
     margin: 40px 16px 12px;
@@ -109,4 +112,11 @@
         width: 375px;
         height: 478px;
     }
+}
+.modal__title{
+    margin: 0px 0px 20px 0px;
+}
+.modal__desc{
+    padding: 0px;
+    margin: 0 auto;
 }

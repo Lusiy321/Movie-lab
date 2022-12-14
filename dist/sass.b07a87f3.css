@@ -650,7 +650,7 @@ body {
 @media screen and (min-width: 1280px) {
   .modal {
     width: 806px;
-    height: 558px;
+    height: auto;
     background-color: #fff;
     position: relative;
     box-shadow: 0 4px 4px #0000000f;
@@ -686,8 +686,11 @@ body {
 
 .modal-form {
   justify-content: center;
-  align-items: center;
   display: flex;
+}
+
+.gallery__title {
+  margin-top: 40px;
 }
 
 .modal__box_img {
@@ -713,6 +716,15 @@ body {
     width: 375px;
     height: 478px;
   }
+}
+
+.modal__title {
+  margin: 0 0 20px;
+}
+
+.modal__desc {
+  margin: 0 auto;
+  padding: 0;
 }
 
 /*# sourceMappingURL=sass.b07a87f3.css.map */
