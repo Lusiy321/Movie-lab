@@ -77,10 +77,36 @@
 
     &:hover,
     &:focus {
-        border-color:rgb(255, 0, 27);
+        fill:rgb(255, 0, 27);
         transition-property: opacity, background-color, fill, visibility, border-color;
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
+    
 
+}
+
+.modal-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal__box_img{
+    margin: 40px 16px 12px;
+}
+.modal__img{
+    @media screen and (max-width: 767px) {
+        width: 240px;
+        height: 357px;
+    }
+        
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+        width: 264px;
+        height: 374px;
+    }
+        
+    @media screen and (min-width: 1200px) {
+        width: 375px;
+        height: 478px;
+    }
 }

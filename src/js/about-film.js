@@ -4,13 +4,16 @@ import { renderModal } from './render-modal';
 const closeBtn = document.querySelector('.modal-btn');
 const aboutWindow = document.querySelector('.backdrop');
 const itemElem = document.querySelector('.gallery');
+export const genres = document.querySelector('.modal__genres');
 export const containerModal = document.querySelector('.modal-form');
 
 closeBtn.addEventListener('click', closeAbout);
 itemElem.addEventListener('click', openAbout);
 
-export function closeAbout() {
+export function closeAbout(e) {
+  e.preventDefault();
   aboutWindow.classList.add('is-hidden');
+  containerModal.innerHTML = null;
 }
 
 export function openAbout(e) {
@@ -20,12 +23,9 @@ export function openAbout(e) {
   }
   aboutWindow.classList.remove('is-hidden');
   const id = e.target.dataset.source;
-  console.log(id);
-  try {
-    oneMovie(id).then(res => {
-      renderModal(res);
-    });
-  } catch (e) {
-    return Error;
-  }
+  oneMovie(id).then(res => {
+    renderModal(res.data);
+  });
+
+  return;
 }

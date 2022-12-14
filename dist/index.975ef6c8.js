@@ -623,9 +623,9 @@ parcelHelpers.export(exports, "container", ()=>container);
 parcelHelpers.export(exports, "form", ()=>form);
 parcelHelpers.export(exports, "error", ()=>error);
 const KEY = "f753ddb9b7c22c6c336bfdc87099e2ae";
-const URL = "https://api.themoviedb.org/3/";
-const POPULAR = "discover/movie?sort_by=popularity.desc";
-const MOVIE = "search/movie?";
+const URL = "https://api.themoviedb.org/3";
+const POPULAR = "/discover/movie?sort_by=popularity.desc";
+const MOVIE = "/search/movie?";
 let page = 1;
 const container = document.querySelector(".gallery");
 const form = document.querySelector(".search-form");
@@ -4895,6 +4895,7 @@ function renderMain(data) {
 },{"./API/consts":"g20t7","./API/main-page-movie":"b0Faj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jKxeL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "genres", ()=>genres);
 parcelHelpers.export(exports, "containerModal", ()=>containerModal);
 parcelHelpers.export(exports, "closeAbout", ()=>closeAbout);
 parcelHelpers.export(exports, "openAbout", ()=>openAbout);
@@ -4903,25 +4904,24 @@ var _renderModal = require("./render-modal");
 const closeBtn = document.querySelector(".modal-btn");
 const aboutWindow = document.querySelector(".backdrop");
 const itemElem = document.querySelector(".gallery");
+const genres = document.querySelector(".modal__genres");
 const containerModal = document.querySelector(".modal-form");
 closeBtn.addEventListener("click", closeAbout);
 itemElem.addEventListener("click", openAbout);
-function closeAbout() {
+function closeAbout(e) {
+    e.preventDefault();
     aboutWindow.classList.add("is-hidden");
+    containerModal.innerHTML = null;
 }
 function openAbout(e) {
     e.preventDefault();
     if (e.target.nodeName !== "IMG") return;
     aboutWindow.classList.remove("is-hidden");
     const id = e.target.dataset.source;
-    console.log(id);
-    try {
-        (0, _searchModal.oneMovie)(id).then((res)=>{
-            (0, _renderModal.renderModal)(res);
-        });
-    } catch (e1) {
-        return Error;
-    }
+    (0, _searchModal.oneMovie)(id).then((res)=>{
+        (0, _renderModal.renderModal)(res.data);
+    });
+    return;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./API/search-modal":"cXhWK","./render-modal":"7JSdB"}],"cXhWK":[function(require,module,exports) {
@@ -4929,30 +4929,51 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "oneMovie", ()=>oneMovie);
 var _consts = require("./consts");
-async function oneMovie(id) {
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+async function oneMovie(ID) {
     try {
-        const res = await axios.get(`${(0, _consts.URL)}movie/${id}?&api_key=${(0, _consts.KEY)}`);
-        return res.JSON("");
+        const res = await (0, _axiosDefault.default).get(`${(0, _consts.URL)}/movie/${ID}?&api_key=${(0, _consts.KEY)}`);
+        return res;
     } catch (e) {
         return Error;
     }
 }
 
-},{"./consts":"g20t7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7JSdB":[function(require,module,exports) {
+},{"./consts":"g20t7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","axios":"jo6P5"}],"7JSdB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderModal", ()=>renderModal);
 var _aboutFilm = require("./about-film");
-function renderModal(res) {
-    //   console.log(res);
-    const markup = res.map((item)=>`<div>
-              <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.original_title}"></div>
+function renderModal(data) {
+    const markup = `<div class="modal__box_img" ><img class="modal__img" src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.original_title}"></div>
               <div class = "gallery__title">
-                  <h2>${item.original_title.toUpperCase()}</h2>
-                  <p></p>
-              </div>
-          </div>`).join("");
+                  <h2>${data.original_title.toUpperCase()}</h2>
+                  <ul>
+                      <li>
+                          <p><span>Vote / Votes</span>
+                              <span>
+                                  <span>${data.vote_average}</span>"/"<span>${data.vote_count}</span>
+                              </span>
+                          </p>
+                      </li>
+                      <li>
+                          <p><span>Popularity</span><span>${data.popularity}</span></p>
+                      </li>
+                      <li>
+                          <p><span>Original Title</span><span>${data.original_title}</span></p>
+                      </li>
+                      <li>
+                          <p><span>Genre: </span><span class="modal__genres"></span></p>
+                      </li>
+                  </ul>
+                  <h3>ABOUT</h3>
+                  <p>${data.overview}</p>
+              </div>`;
     (0, _aboutFilm.containerModal).insertAdjacentHTML("beforeend", markup);
+    const genres = document.querySelector(".modal__genres");
+    const genre = data.genres.map((item)=>`<p class="genres">${item.name}</p>`).join("");
+    genres.insertAdjacentHTML("beforeend", genre);
     return;
 }
 

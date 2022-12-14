@@ -678,10 +678,41 @@ body {
 }
 
 .modal-btn:hover, .modal-btn:focus {
-  border-color: #ff001b;
+  fill: #ff001b;
   transition-property: opacity, background-color, fill, visibility, border-color;
   transition-duration: .25s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+.modal-form {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.modal__box_img {
+  margin: 40px 16px 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal__img {
+    width: 240px;
+    height: 357px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .modal__img {
+    width: 264px;
+    height: 374px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal__img {
+    width: 375px;
+    height: 478px;
+  }
 }
 
 /*# sourceMappingURL=sass.b07a87f3.css.map */
