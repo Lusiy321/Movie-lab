@@ -1,18 +1,27 @@
-import { page } from './API/consts';
+import { page, pagin } from './API/consts';
 import { popularMovie } from './API/main-page-movie';
 import { container } from './API/consts';
 
 export async function mainPage() {
   try {
     await popularMovie(page).then(resp => {
+      const result = resp.data.total_results;
       renderMain(resp.data);
+      pagin.reset(result);
+    });
+    pagin.on('afterMove', async ({ page }) => {
+      await popularMovie(page).then(resp => {
+        renderMain(resp.data);
+      });
     });
   } catch (e) {
     return Error;
   }
+  return;
 }
 
 export function renderMain(data) {
+  container.innerHTML = null;
   const markup = data.results
     .map(
       item =>
