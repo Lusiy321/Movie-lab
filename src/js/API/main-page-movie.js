@@ -22,3 +22,14 @@ export async function fetchQuery(query, page) {
     return Error;
   }
 }
+
+export async function fetchGenre() {
+  try {
+    const respon = await axios.get(
+      `${URL}/genre/movie/list?api_key=${KEY}&language=en-US`
+    );
+    return respon.data.genres;
+  } catch (e) {
+    return Error;
+  }
+}

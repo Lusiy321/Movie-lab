@@ -2976,6 +2976,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "popularMovie", ()=>popularMovie);
 parcelHelpers.export(exports, "fetchQuery", ()=>fetchQuery);
+parcelHelpers.export(exports, "fetchGenre", ()=>fetchGenre);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _consts = require("./consts");
@@ -2991,6 +2992,14 @@ async function fetchQuery(query, page) {
     try {
         const res = await (0, _axiosDefault.default).get(`${(0, _consts.URL)}${(0, _consts.MOVIE)}&api_key=${(0, _consts.KEY)}&query=${query}$&page=${page}`);
         return res;
+    } catch (e) {
+        return Error;
+    }
+}
+async function fetchGenre() {
+    try {
+        const respon = await (0, _axiosDefault.default).get(`${(0, _consts.URL)}/genre/movie/list?api_key=${(0, _consts.KEY)}&language=en-US`);
+        return respon.data.genres;
     } catch (e) {
         return Error;
     }
@@ -7216,7 +7225,7 @@ function renderMain(data) {
             <div><img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}" data-source="${item.id}"></div>
             <div class = "gallery__title">
                 <h2>${item.title.toUpperCase()}</h2>
-                <p></p>
+                <p>${item.release_date.slice(0, 4)}</p>
             </div>
         </li>`).join("");
     (0, _consts.container).insertAdjacentHTML("beforeend", markup);
@@ -7230,6 +7239,8 @@ parcelHelpers.export(exports, "genres", ()=>genres);
 parcelHelpers.export(exports, "containerModal", ()=>containerModal);
 parcelHelpers.export(exports, "closeAbout", ()=>closeAbout);
 parcelHelpers.export(exports, "openAbout", ()=>openAbout);
+parcelHelpers.export(exports, "closeEscape", ()=>closeEscape);
+parcelHelpers.export(exports, "closeClick", ()=>closeClick);
 var _searchModal = require("./API/search-modal");
 var _renderModal = require("./render-modal");
 const closeBtn = document.querySelector(".modal-btn");
@@ -7239,6 +7250,8 @@ const genres = document.querySelector(".modal__genres");
 const containerModal = document.querySelector(".modal-form");
 closeBtn.addEventListener("click", closeAbout);
 itemElem.addEventListener("click", openAbout);
+window.addEventListener("keydown", closeEscape);
+aboutWindow.addEventListener("click", closeClick);
 function closeAbout(e) {
     e.preventDefault();
     aboutWindow.classList.add("is-hidden");
@@ -7253,6 +7266,18 @@ function openAbout(e) {
         (0, _renderModal.renderModal)(res.data);
     });
     return;
+}
+function closeEscape(e) {
+    if (e.key === "Escape") {
+        closeAbout(e);
+        return;
+    }
+}
+function closeClick(e) {
+    if (e.target === aboutWindow) {
+        closeAbout(e);
+        return;
+    }
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./API/search-modal":"cXhWK","./render-modal":"7JSdB"}],"cXhWK":[function(require,module,exports) {
@@ -7278,7 +7303,7 @@ parcelHelpers.export(exports, "renderModal", ()=>renderModal);
 var _aboutFilm = require("./about-film");
 function renderModal(data) {
     const markup = `<div class="modal__box_img" ><img class="modal__img" src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.original_title}"></div>
-              <div class = "gallery__title">
+              <div class = "galleries__title">
                   <h2 class = "modal__title">${data.original_title.toUpperCase()}</h2>
                   <ul class = "modal__desc">
                       <li class = "modal__desc__list">
@@ -7321,7 +7346,7 @@ window.addEventListener("load", ()=>{
     loader.classList.add("fadeOut");
     setTimeout(()=>{
         loader.style.display = "none";
-    }, 500);
+    }, 2000);
 });
 
 },{}],"lmVHn":[function(require,module,exports) {

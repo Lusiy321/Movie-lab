@@ -4,5 +4,5 @@ window.addEventListener('load', () => {
   loader.classList.add('fadeOut');
   setTimeout(() => {
     loader.style.display = 'none';
-  }, 500);
+  }, 2000);
 });

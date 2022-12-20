@@ -31,7 +31,7 @@ export function renderMain(data) {
             }" alt="${item.title}" data-source="${item.id}"></div>
             <div class = "gallery__title">
                 <h2>${item.title.toUpperCase()}</h2>
-                <p></p>
+                <p>${item.release_date.slice(0, 4)}</p>
             </div>
         </li>`
     )

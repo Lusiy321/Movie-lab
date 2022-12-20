@@ -4,7 +4,7 @@ export function renderModal(data) {
   const markup = `<div class="modal__box_img" ><img class="modal__img" src="https://image.tmdb.org/t/p/w500${
     data.poster_path
   }" alt="${data.original_title}"></div>
-              <div class = "gallery__title">
+              <div class = "galleries__title">
                   <h2 class = "modal__title">${data.original_title.toUpperCase()}</h2>
                   <ul class = "modal__desc">
                       <li class = "modal__desc__list">

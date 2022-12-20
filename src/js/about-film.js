@@ -9,6 +9,8 @@ export const containerModal = document.querySelector('.modal-form');
 
 closeBtn.addEventListener('click', closeAbout);
 itemElem.addEventListener('click', openAbout);
+window.addEventListener('keydown', closeEscape);
+aboutWindow.addEventListener('click', closeClick);
 
 export function closeAbout(e) {
   e.preventDefault();
@@ -28,4 +30,16 @@ export function openAbout(e) {
   });
 
   return;
+}
+export function closeEscape(e) {
+  if (e.key === 'Escape') {
+    closeAbout(e);
+    return;
+  }
+}
+export function closeClick(e) {
+  if (e.target === aboutWindow) {
+    closeAbout(e);
+    return;
+  }
 }
