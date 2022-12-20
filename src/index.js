@@ -5,4 +5,6 @@ import { pagin } from './js/pagination';
 import { openAbout } from './js/about-film';
 import { page } from './js/API/consts';
 import { renderMain } from './js/render-main';
+import './js/loader';
+import './js/API/arrow';
 mainPage();

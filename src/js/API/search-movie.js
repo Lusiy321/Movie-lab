@@ -16,7 +16,7 @@ export async function onSearch(e) {
   } else {
     try {
       await fetchQuery(query, page).then(res => {
-        error.textContent = `We found ${res.data.total_results} films`;
+        error.textContent = `We found ${res.data.total_results} movies on request: "${query}" `;
         const result = res.data.total_results;
         if (res.data.total_results === 0) {
           container.innerHTML = null;

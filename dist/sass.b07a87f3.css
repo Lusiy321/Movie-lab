@@ -411,6 +411,10 @@ span {
   font-size: 20px;
 }
 
+p {
+  margin: 0 auto;
+}
+
 .footer {
   height: 77px;
   background: #f7f7f7;
@@ -694,7 +698,7 @@ body {
 }
 
 .modal__box_img {
-  margin: 40px 16px 12px;
+  margin: 40px 16px;
 }
 
 @media screen and (max-width: 767px) {
@@ -725,6 +729,120 @@ body {
 .modal__desc {
   margin: 0 auto;
   padding: 0;
+}
+
+.modal__desc__list {
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+}
+
+.modal__button {
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .modal__button {
+    gap: 20px;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .modal__button {
+    gap: 32px;
+    padding-top: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal__button {
+    gap: 16px;
+  }
+}
+
+.modal__btn {
+  text-transform: uppercase;
+  color: #000;
+  background-color: inherit;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  transition: all 1s cubic-bezier(.4, 0, .2, 1);
+}
+
+@media screen and (max-width: 767px) {
+  .modal__btn {
+    width: 129px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .modal__btn {
+    width: 152px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal__btn {
+    width: 148px;
+    height: 42px;
+  }
+}
+
+.modal__btn:hover, .modal__btn:focus {
+  background-color: #ff6b01;
+  border-color: #ff6b01;
+}
+
+.option__list {
+  color: #8c8c8c;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.option__value {
+  color: #000;
+  padding-right: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.option__vote {
+  color: #fff;
+  background: #ff6b01;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.modal__about__text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.modal__genres {
+  color: #ff6b01;
+  margin-right: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .tui-pagination {

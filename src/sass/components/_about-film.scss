@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     transition: all 250ms ease 0s;
-    min-height: 100%;
+    min-height: 100%;    
     opacity: 1;
     z-index: 11;
     display: flex;
@@ -95,7 +95,7 @@
     margin-top: 40px;
 }
 .modal__box_img{
-    margin: 40px 16px 12px;
+    margin: 40px 16px 40px;
 }
 .modal__img{
     @media screen and (max-width: 767px) {
@@ -119,4 +119,109 @@
 .modal__desc{
     padding: 0px;
     margin: 0 auto;
+    
+}
+.modal__desc__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.modal__button {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 767px) {
+        padding-top: 40px;
+        gap: 20px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+        padding-top: 15px;
+        gap: 32px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        gap: 16px;
+    }
+
+}
+.modal__btn {
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color: #000;
+    background-color: inherit;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (max-width: 767px) {
+        width: 129px;
+        height: 44px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+        width: 152px;
+        height: 44px;
+    }
+
+
+    @media screen and (min-width: 1200px) {
+        width: 148px;
+        height: 42px;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: #FF6B01;
+        background-color: #FF6B01;
+    }
+}
+
+.option__list{
+    color: #8C8C8C;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.option__value{
+    color: #000000;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    padding-right: 40px;
+}
+.option__vote{
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 14px;
+    background: #FF6B01;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.modal__about__text{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.modal__genres{
+    color: #FF6B01;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 20px;
+    
 }

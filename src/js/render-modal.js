@@ -7,37 +7,46 @@ export function renderModal(data) {
               <div class = "gallery__title">
                   <h2 class = "modal__title">${data.original_title.toUpperCase()}</h2>
                   <ul class = "modal__desc">
-                      <li>
-                          <p><span>Vote / Votes</span>
-                              <span>
-                                  <span>${data.vote_average}</span>"/"<span>${
+                      <li class = "modal__desc__list">
+                          <div><span class = "option__list">Vote / Votes</span></div>
+                              <div><span class = "option__vote">${
+                                data.vote_average
+                              }</span><span class = "option__value"> / ${
     data.vote_count
-  }</span>
-                              </span>
-                          </p>
+  }</span></div>
+                              
+                          
                       </li>
-                      <li>
-                          <p><span>Popularity</span><span>${
+                      <li class = "modal__desc__list">
+                          <div><span class = "option__list">Popularity</span></div>
+                          <div><span class = "option__value">${
                             data.popularity
-                          }</span></p>
+                          }</span></div>
                       </li>
-                      <li>
-                          <p><span>Original Title</span><span>${
+                      <li class = "modal__desc__list">
+                          <div><span class = "option__list">Original Title</span></div>
+                          <div><span class = "option__value">${
                             data.original_title
-                          }</span></p>
+                          }</span></div>
                       </li>
-                      <li>
-                          <p><span>Genre: </span><span class="modal__genres"></span></p>
+                      <li class = "modal__desc__list">
+                          <div><span class = "option__list">Genre: </span></div>
+                          <div><span class="modal__genres"></span></div>
                       </li>
                   </ul>
                   <h3>ABOUT</h3>
-                  <p>${data.overview}</p>
-              </div>`;
+                  <p class = "modal__about__text">${data.overview}</p>
+                  <div class="modal__button">
+                    <button autofocus type="submit" class="modal__btn">ADD TO WATCHED</button>
+                    <button type="submit" class="modal__btn">ADD TO QUEUE</button>
+                  </div>
+              </div>
+              `;
 
   containerModal.insertAdjacentHTML('beforeend', markup);
   const genres = document.querySelector('.modal__genres');
   const genre = data.genres
-    .map(item => `<p class="genres">${item.name}</p>`)
+    .map(item => `<span class="modal__genres">${item.name}</span>`)
     .join('');
   genres.insertAdjacentHTML('beforeend', genre);
   return;
